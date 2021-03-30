@@ -6,7 +6,7 @@ import './App.css'
 
 const LOCAL_KEY_APLIC = "todoApp"
 
-export default function App(e) {
+export default function App() {
   const [todos, setTodos] = useState ([])
   const todoNameRef = useRef()
   useEffect(() => {
@@ -23,7 +23,8 @@ export default function App(e) {
     todo.complete = !todo.complete;
     setTodos(newTodos)
   }
-  function handleAddName () {
+  function handleAddName (e) {
+    e.preventDefault()
     const name = todoNameRef.current.value
     if (name === '') return
     todoNameRef.current.value = null
